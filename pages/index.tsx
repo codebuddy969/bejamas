@@ -1,9 +1,31 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/index.module.scss';
 
-const Home: NextPage = () => {
+import Navigation from '@/components/navigation';
+import Featured from '@/components/index/featured';
+import About from '@/components/index/about';
+import Additional from '@/components/index/additional';
+import ProductsHeadline from '@/components/index/products-headline';
+import Filters from '@/components/index/filters';
+import Products from '@/components/index/products';
+
+interface Props {
+  data: {
+    title: string
+  },
+}
+export async function getServerSideProps() {
+
+  const data = {title: "Create Next App"}
+
+  return {
+    props: { data },
+}
+}
+
+const Home: NextPage<Props> = ({ data }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,9 +34,24 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
+        <Navigation />
+        <Featured />
+        
+        <section>
+          <About />
+          <Additional />
+        </section>
+
+        <ProductsHeadline />
+
+        <section>
+          <Filters />
+          <Products />
+        </section>
+         
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">Next.js! {data.title}</a>
         </h1>
 
         <p className={styles.description}>
