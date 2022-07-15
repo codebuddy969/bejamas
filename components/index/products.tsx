@@ -1,6 +1,10 @@
+import ProductsCard from '@/components/index/products-card';
+
 const Products = () => {
     return (
-        <h1>Products</h1>
+        <div>
+            <ProductsCard />
+        </div>
     )
 }
   

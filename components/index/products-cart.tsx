@@ -4,12 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/components/product-cart.module.scss';
 
+import {useDetectClickOutside} from 'react-detect-click-outside';
+
 const ProductsCart = () => {
 
     const [status, setStatus] = useState(false);
 
+    const ref = useDetectClickOutside({ onTriggered: () => status && setStatus(false) });
+
     return (
-        <div className={styles.cart}>
+        <div className={styles.cart} ref={ref}>
             <button className={styles.trigger} onClick={() => setStatus(!status)}>
                 <Image src='/cart.svg' alt='Logo of a bejamas company' layout='fill' objectFit='cover' />
                 <span>4</span>

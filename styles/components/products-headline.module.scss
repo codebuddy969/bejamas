@@ -1,0 +1,30 @@
+@import "../utilities/variables.scss";
+
+.headline {
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+        color: $gray-200;
+        font-size: 18px;
+        line-height: 20px;
+    }
+    strong {
+        color: $primary-color;
+        font-weight: 700;
+    }
+    span {
+        color: $primary-color;
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 37px;
+        vertical-align: middle;
+    }
+    button {
+        width: 29px;
+        height: 29px;
+        position: relative;
+        background-color: transparent;
+    }
+}

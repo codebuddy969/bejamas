@@ -10,7 +10,7 @@ const Navigation = () => {
             <div className={styles.container}>
                 <Link href="/" passHref>
                     <a className={styles.logo}>
-                        <Image src='/logo.svg' alt='Logo of a bejamas company' layout='fill' objectFit='cover' />
+                        <Image src='/logo.svg' alt='Logo of a bejamas company' layout='fill' objectFit='contain' />
                     </a>
                 </Link>
                 <ProductsCart />

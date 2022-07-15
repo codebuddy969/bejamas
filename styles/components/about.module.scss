@@ -1,0 +1,23 @@
+@import "../utilities/variables.scss";
+
+.about {
+    h2 {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 24px;
+    }
+    a {
+        display: none;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 24px;
+        color: $secondary-color;
+    }
+    p {
+        color: $secondary-color;
+        display: none;
+        &:first-child {
+            display: inline-block;
+        }
+    }
+}
