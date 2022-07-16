@@ -11,26 +11,27 @@
         color: $gray-200;
         font-size: 18px;
         line-height: 20px;
+        strong {
+            font-size: inherit;
+            line-height: inherit;
+            color: $primary-color;
+            font-weight: 700;
+        }
+        span {
+            color: $primary-color;
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 37px;
+            vertical-align: middle;
+        }
     }
-    strong {
-        font-size: inherit;
-        line-height: inherit;
-        color: $primary-color;
-        font-weight: 700;
-    }
-    span {
-        color: $primary-color;
-        font-weight: 700;
-        font-size: 34px;
-        line-height: 37px;
-        vertical-align: middle;
-    }
-    button {
-        width: 29px;
-        height: 29px;
-        position: relative;
-        background-color: transparent;
-    }
+}
+
+.mobile-trigger {
+    width: 29px;
+    height: 29px;
+    position: relative;
+    background-color: transparent;
 }
 
 @media (min-width: $breakpoint-md) {
@@ -38,9 +39,12 @@
         h2 {
             font-size: 30px;
             line-height: 32px;
+            span {
+                margin: 0 15px;
+            }
         }
-        span {
-            margin: 0 15px;
-        }
+    }
+    .mobile-trigger {
+        display: none;
     }
 }

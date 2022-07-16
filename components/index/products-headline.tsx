@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import styles from '@/styles/components/products-headline.module.scss';
 
+import Sort from '@/components/index/sort';
+
 const ProductsHeadline = () => {
     return (
         <div className={styles.headline}>
@@ -9,7 +11,8 @@ const ProductsHeadline = () => {
                 <span>/</span>
                 Premium Photos
             </h2>
-            <button>
+            <Sort />
+            <button className={styles['mobile-trigger']}>
                 <Image src='/filters.svg' alt='Filters icon' layout='fill' objectFit='contain' />
             </button>
         </div>

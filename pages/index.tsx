@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/index.module.scss';
 
+import fetch from 'node-fetch';
+
 import Navigation from '@/components/navigation';
 import Featured from '@/components/index/featured';
 import About from '@/components/index/about';
@@ -13,19 +15,23 @@ import Products from '@/components/index/products';
 
 interface Props {
   data: {
-    title: string
+    name: string
   },
 }
 export async function getServerSideProps() {
 
-  const data = {title: "Create Next App"}
+  const response = await fetch(`${process.env.API}/api/home`);
+  const data = await response.json();
 
   return {
-    props: { data },
-}
+      props: { data },
+  }
 }
 
 const Home: NextPage<Props> = ({ data }) => {
+
+  console.log(data);
+
   return (
     <div className={styles.container}>
       <Head>
