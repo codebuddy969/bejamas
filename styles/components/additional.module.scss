@@ -1,6 +1,8 @@
 @import "../utilities/variables.scss";
 
 .additional {
+    width: 100%;
+    padding-top: 30px;
     h2 {
         font-weight: 700;
         font-size: 22px;
@@ -21,14 +23,31 @@
 }
 
 .details {
+    padding-top: 30px;
     h3 {
         font-weight: 700;
         font-size: 22px;
         line-height: 24px;
+        margin-bottom: 23px;
     }
     div {
         color: $secondary-color;
         font-size: 22px;
         line-height: 24px;
+        margin-top: 14px;
+    }
+}
+
+@media (min-width: $breakpoint-md) {
+    .additional {
+        width: 411px;
+    }
+    .details {
+        text-align: right;
+        padding-top: 54px;
+        div {
+            font-size: 16px;
+            line-height: 18px;
+        }
     }
 }

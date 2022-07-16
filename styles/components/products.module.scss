@@ -1,0 +1,10 @@
+@import "../utilities/variables.scss";
+
+@media (min-width: $breakpoint-md) {
+    .products {
+        width: calc(100% - 320px);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

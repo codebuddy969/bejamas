@@ -1,7 +1,9 @@
 @import "../utilities/variables.scss";
 
 .headline {
-    padding: 0 15px;
+    margin: 0 auto;
+    max-width: $max-page-width;
+    padding: 50px 15px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,6 +13,8 @@
         line-height: 20px;
     }
     strong {
+        font-size: inherit;
+        line-height: inherit;
         color: $primary-color;
         font-weight: 700;
     }
@@ -26,5 +30,17 @@
         height: 29px;
         position: relative;
         background-color: transparent;
+    }
+}
+
+@media (min-width: $breakpoint-md) {
+    .headline {
+        h2 {
+            font-size: 30px;
+            line-height: 32px;
+        }
+        span {
+            margin: 0 15px;
+        }
     }
 }

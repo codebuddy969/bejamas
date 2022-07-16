@@ -1,20 +1,31 @@
 @import "./utilities/variables.scss";
 
 .info {
-  padding: 0 15px 50px;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 4px solid $gray-300;
+    margin: 0 auto;
+    padding: 0 15px 50px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid $gray-300;
 }
 
 .products {
-  padding: 0 15px;
-  display: flex;
-  flex-direction: column;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
 }
 
-  
-  @media (max-width: 600px) {
+.info, 
+.products {
+    max-width: $max-page-width;
+}
 
-  }
-  
+@media (min-width: $breakpoint-md) {
+    .info {
+        flex-direction: row;
+    }
+    .products {
+      padding: 65px 15px 0;
+      flex-direction: row;
+    }
+}

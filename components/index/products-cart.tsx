@@ -20,6 +20,7 @@ const ProductsCart = () => {
             </button>
 
             <div className={`${styles.list} ${status && styles['list-visible']}`}>
+                <button className={styles.close} onClick={() => setStatus(false)}></button>
                 <ul>
                     <li>
                         <div className={styles.info}>
@@ -44,6 +45,8 @@ const ProductsCart = () => {
                             <Image src='/dog.png' alt='iMage of a dog' layout='fill' objectFit='cover' />
                         </div>
                     </li>
+
+                    
                 </ul>
                 <button className='btn-primary btn-primary--outlined'>
                     Clear

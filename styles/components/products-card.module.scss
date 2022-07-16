@@ -1,14 +1,12 @@
 @import "../utilities/variables.scss";
 
-.card {
-
-}
-
 .image {
     width: 100%;
     height: 502px;
     position: relative;
     button {
+        font-size: 23px;
+        line-height: 23px;
         bottom: 0;
         height: 48px;
         position: absolute;
@@ -52,6 +50,11 @@
         font-weight: 700;
         font-size: 34px;
         line-height: 37px;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
 }
 
@@ -60,4 +63,27 @@
     color: $secondary-color;
     font-size: 29px;
     line-height: 32px;  
+}
+
+@media (min-width: $breakpoint-md) {
+    .card {
+        margin-bottom: 52px;
+        width: calc(50% - 15px);
+    }
+    .image {
+        button {
+            display: none;
+        }
+        &:hover {
+            button {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpoint-lg) {
+    .card {
+        width: calc(33% - 33px);
+    }
 }

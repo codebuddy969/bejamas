@@ -1,28 +1,18 @@
 $primary-color: #000000;
 $secondary-color: #656565;
 
+$dark-100: #1D1D1D;
+
 $gray-100: #B4B4B4;
 $gray-200: #9B9B9B;
 $gray-300: #E4E4E4;
 $gray-400: #C2C2C2;
 
-$TR-16px-18px: 400 16px/18px;
-$TR-20px-22px: 400 20px/22px;
-$TR-22px-24px: 400 22px/24px;
-$TR-20px-22px: 400 18px/27px;
-$TR-29px-32px: 400 29px/32px;
-$TR-30px-33px: 400 30px/33px;
-
-$TB-20px-22px: 700 20px/22px;
-$TB-22px-24px: 700 22px/24px;
-$TB-29px-32px: 700 29px/32px;
-$TB-30px-33px: 700 30px/33px;
-$TB-32px-35px: 700 32px/35px;
-$TB-34px-37px: 700 34px/37px;
-
 $breakpoint-lg: 1199px;
 $breakpoint-md: 991px;
 $breakpoint-sm: 767px;
 $breakpoint-xs: 575px;
+
+$max-page-width: 1320px;
 
 $layer: ("high": 4, "medium": 3, "low": 2);
