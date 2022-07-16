@@ -1,40 +1,22 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-type Data = {
-  name: string
-}
+import { iProduct, iServerData } from '@/utilities/interfaces/serverData';
 
-const categories = [
-    { name: "people" },
-    { name: "premium" },
-    { name: "pets" },
-    { name: "food" },
-    { name: "landmarks" },
-    { name: "cities" },
-    { name: "Nature" }
-]
+import { categories, productsList } from '@/utilities/database';
 
-const products = [
-    {
-        name: "Red Bench",
-        category: "people",
-        price: 3.89,
-        currency: "USD",
-        image: {
-            src: "",
-            alt: ""
-        },
-        bestseller: true,
-        featured: false,
-        details: null
-    }
-]
+export default function handler( req: NextApiRequest, res: NextApiResponse<iServerData> ) {
 
-export default function handler( req: NextApiRequest, res: NextApiResponse<Data> ) {
+    let featured: iProduct = productsList.filter((product: iProduct) => product.featured)[0];
 
-    const data = {
+    const products: iProduct[] = productsList.slice(0, 6);
 
+    const data: iServerData = {
+        data: {
+            categories,
+            products,
+            featured
+        }
     }
 
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json(data)
 }

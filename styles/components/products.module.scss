@@ -3,8 +3,19 @@
 @media (min-width: $breakpoint-md) {
     .products {
         width: calc(100% - 320px);
+    }
+
+    .container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+    }
+}
+
+@media (min-width: $breakpoint-lg) {
+    .products {
+        > div:last-child:not(:nth-child(even)) {
+            margin-right: calc(33% + 33px);
+        }
     }
 }

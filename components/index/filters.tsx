@@ -1,15 +1,27 @@
+import { useContext } from 'react';
+
 import Checkbox from '@/components/controls/checkbox';
 
 import styles from '@/styles/components/filters.module.scss';
 
+import { iServerData } from '@/utilities/interfaces/serverData';
+
+import { ServerDataContext } from '@/utilities/contexts/serverData';
+
 const Filters = () => {
+
+    const value = useContext(ServerDataContext) as iServerData;
+
+    const categories = value?.data?.categories || [];
+    
     return (
         <div>
             <div className={styles.filters}>
                 <h4>Category</h4>
                 <div className={styles.category}>
-                    <Checkbox id='people' text='People' />
-                    <Checkbox id='premium' text='Premium' />
+                    {categories.map(category => {
+                        return <Checkbox key={category.name} id={category.name} text={category.name} />
+                    })}
                 </div>
 
                 <h4>Price range</h4>
