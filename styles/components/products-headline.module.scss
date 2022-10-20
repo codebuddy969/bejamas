@@ -48,3 +48,9 @@
         display: none;
     }
 }
+
+@media (max-width: $breakpoint-md) {
+    .headline {
+        padding-bottom: 20px;
+    }
+}

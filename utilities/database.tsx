@@ -8,7 +8,7 @@ export const categories: iCategories[] = [
     { name: "landmarks" },
     { name: "cities" },
     { name: "nature" }
-]
+];
 
 const images = [
     '160846/french-bulldog-summer-smile-joy-160846',
@@ -17,12 +17,21 @@ const images = [
     '3730754/pexels-photo-3730754',
     '1078090/pexels-photo-1078090',
     '4587954/pexels-photo-4587954'
-]
+];
+
+const names = [
+    'French bulldog summer smile joy',
+    "Red Bench",
+    "Egg Balloon",
+    "Man",
+    "Architecture",
+    "Samurai King Restling",
+];
 
 const product = (id: number) => {
     return {
         id,
-        name: 'French bulldog summer smile joy',
+        name: names[Math.floor(Math.random() * 6)],
         category: categories[Math.floor(Math.random() * 7)].name,
         price: Math.floor(Math.random() * 100) + 1,
         currency: "USD",

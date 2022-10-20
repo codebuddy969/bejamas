@@ -3,11 +3,16 @@ import {useState} from 'react';
 import Image from 'next/image';
 import styles from '@/styles/components/sort.module.scss';
 
+import {useDispatch} from "react-redux";
+import { api_sorting } from '@/utilities/redux/slices/apiRequest.slice';
+
 import {useDetectClickOutside} from 'react-detect-click-outside';
 
 const Sort = () => {
 
     const [status, setStatus] = useState(false);
+
+    const dispatch = useDispatch();
 
     const ref = useDetectClickOutside({ onTriggered: () => status && setStatus(false) });
 
@@ -17,14 +22,14 @@ const Sort = () => {
                 <span className={styles.image}>
                     <Image src='/sort.svg' alt='sort icon' layout='fill' objectFit='contain' />
                 </span>
-                <span className={styles.text}>Sort by</span> Price <span className={styles.arrow}></span>
+                <span className={styles.text}>Sort by </span> Price <span className={styles.arrow}></span>
             </button>
             <ul className={styles.list}>
                 <li>
-                    <button>Alphabetically</button>
+                    <button onClick={() => dispatch(api_sorting('alphabetically'))}>Alphabetically</button>
                 </li>
                 <li>
-                    <button>Price</button>
+                    <button onClick={() => dispatch(api_sorting('price'))}>Price</button>
                 </li>
             </ul>
         </div>

@@ -4,6 +4,10 @@ import { iProduct, iServerData } from '@/utilities/interfaces/serverData';
 
 import { categories, productsList } from '@/utilities/database';
 
+const filterByCategories = () => {
+    
+}
+
 export default function handler( req: NextApiRequest, res: NextApiResponse<iServerData> ) {
 
     let featured: iProduct = productsList.filter((product: iProduct) => product.featured)[0];
