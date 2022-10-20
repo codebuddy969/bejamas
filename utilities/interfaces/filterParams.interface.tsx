@@ -8,17 +8,9 @@ export interface IApiRequestCategories {
     status: Boolean;
 }
 
-export interface IApiRequestSorting {
-    sorting: String;
-}
-
 export interface IApiRequestRange {
     id: String;
     status: Boolean;
-}
-
-export interface IApiRequestOrder {
-    order: String;
 }
 
 export interface IApiRequestParams {

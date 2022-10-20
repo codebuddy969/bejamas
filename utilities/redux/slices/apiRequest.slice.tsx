@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { IApiRequestParams, IApiRequestCategories, IApiRequestRange, IApiRequestSorting } from '@/utilities/interfaces/filterParams.interface';
+import { IApiRequestParams, IApiRequestCategories, IApiRequestRange } from '@/utilities/interfaces/filterParams.interface';
   
 const initialState: IApiRequestParams = {
     categories: [],
-    sorting: "",
+    sorting: "price",
     range: [],
-    order: "",
+    order: "desc",
 }
 
 export const apiRequestSlice = createSlice({
@@ -25,13 +25,9 @@ export const apiRequestSlice = createSlice({
         }
 
         state.categories = categories;
-
-        console.log("Categories", action.payload, state.categories);
       },
       api_sorting: (state , action: PayloadAction<String>) => {
         state.sorting = action.payload;
-
-        console.log("Sorting", state.sorting);
       },
       api_range: (state, action: PayloadAction<IApiRequestRange>) => {
 
@@ -46,11 +42,9 @@ export const apiRequestSlice = createSlice({
         }
 
         state.range = range;
-
-        console.log("Range", action.payload, state.range);
       },
-      api_order: (state) => {
-        state.order = "";
+      api_order: (state, action: PayloadAction<String>) => {
+        state.order = action.payload;
       }
     },
 })

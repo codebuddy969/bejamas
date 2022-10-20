@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect} from "react";
 import Image from "next/image";
 
 import Checkbox from "@/components/controls/checkbox";
@@ -10,28 +10,18 @@ import {IFilterParams} from "@/utilities/interfaces/filterParams.interface";
 
 import {ServerDataContext} from "@/utilities/contexts/serverData";
 
-import {useSelector, useDispatch} from "react-redux";
-import {RootState} from "@/utilities/redux/store";
+import {useDispatch} from "react-redux";
 import {
     api_categories,
     api_range,
 } from "@/utilities/redux/slices/apiRequest.slice";
 
-import {useGetProductsByCategoryQuery} from "@/utilities/redux/services/api.service";
-
 const Filters = ({setFilterVisibility, visible}: IFilterParams) => {
     const value = useContext(ServerDataContext) as iServerData;
-
-    const [categoriesID, setCategoriesID] = useState("");
 
     const categories = value?.data?.categories || [];
 
     const dispatch = useDispatch();
-
-    const request = useSelector((state: RootState) => state.apiRequest);
-
-    // const { data: otherName, error, isLoading } = useGetProductsByCategoryQuery(categoriesID);
-    // dispatch(api_categories({name: "test", delete: false}))
 
     return (
         <div className={`${styles.container} ${visible && styles["active"]}`}>
