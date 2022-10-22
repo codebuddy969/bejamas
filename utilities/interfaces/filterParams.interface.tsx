@@ -18,4 +18,5 @@ export interface IApiRequestParams {
     sorting: String;
     range: String[];
     order: String;
+    page: Number;
 }

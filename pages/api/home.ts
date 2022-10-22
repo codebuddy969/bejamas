@@ -8,14 +8,18 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<iServerData>
 ) {
+    const per_page = 6;
+
     let featured: iProduct = productsList.filter(
         (product: iProduct) => product.featured
     )[0];
 
     let products: iProduct[] = productsList;
 
+    let pagination_start = 0;
+    let pagination_end = per_page;
+
     if (req.body) {
-        console.log(req.body);
         if (req.body.post.categories.length) {
             products = productsList.filter((product: iProduct) =>
                 req.body.post.categories.includes(product.category)
@@ -53,15 +57,23 @@ export default function handler(
                   );
 
         req.body.post.order === "asc" && products.reverse();
-    } else {
-        products = productsList.slice(0, 6);
+
+        pagination_start = req.body.post.page * per_page - per_page;
+        pagination_end = req.body.post.page * per_page;
     }
+
+    const rest = products.length % per_page;
+    
+    const pages = Math.floor(products.length / per_page + (rest ? 1 : 0));
+
+    products = products.slice(pagination_start, pagination_end);
 
     const data: iServerData = {
         data: {
             categories,
             products,
             featured,
+            pages
         },
     };
 

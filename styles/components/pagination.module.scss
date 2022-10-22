@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding-top: 70px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     button, span {
         color: $gray-100;
@@ -17,8 +18,8 @@
     button {
         cursor: pointer;
         background-color: transparent;
-        &:first-child, 
-        &:last-child {
+        &.prev,
+        &.next {
             display: inline-flex;
             align-items: center;
             color: $primary-color;
@@ -31,16 +32,46 @@
                 border-width: 0 3px 3px 0;
             }
         }
-        &:first-child {
+        &.prev {
             &:after {
                 transform: rotate(135deg);
             }
         }
-        &:last-child {
+        
+        &.next {
             &:after {
                 transform: rotate(-45deg);
             }
         }
+
+        &.active {
+            color: #000;
+            pointer-events: none;
+        }
+        // &:first-child, 
+        // &:last-child {
+        //     display: inline-flex;
+        //     align-items: center;
+        //     color: $primary-color;
+        //     &:after {
+        //         content: "";
+        //         padding: 5px;
+        //         transform-origin: center;
+        //         border: solid black;
+        //         display: inline-block;
+        //         border-width: 0 3px 3px 0;
+        //     }
+        // }
+        // &:first-child {
+        //     &:after {
+        //         transform: rotate(135deg);
+        //     }
+        // }
+        // &:last-child {
+        //     &:after {
+        //         transform: rotate(-45deg);
+        //     }
+        // }
         &:not(:last-child) {
             margin-right: 15px;
         }

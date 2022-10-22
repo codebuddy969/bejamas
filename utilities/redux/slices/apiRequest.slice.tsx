@@ -7,6 +7,7 @@ const initialState: IApiRequestParams = {
     sorting: "price",
     range: [],
     order: "desc",
+    page: 1
 }
 
 export const apiRequestSlice = createSlice({
@@ -25,9 +26,11 @@ export const apiRequestSlice = createSlice({
         }
 
         state.categories = categories;
+        state.page = 1;
       },
       api_sorting: (state , action: PayloadAction<String>) => {
         state.sorting = action.payload;
+        state.page = 1;
       },
       api_range: (state, action: PayloadAction<IApiRequestRange>) => {
 
@@ -42,11 +45,16 @@ export const apiRequestSlice = createSlice({
         }
 
         state.range = range;
+        state.page = 1;
       },
       api_order: (state, action: PayloadAction<String>) => {
         state.order = action.payload;
-      }
+        state.page = 1;
+      },
+      api_pagination: (state, action: PayloadAction<Number>) => {
+        state.page = action.payload;
+      },
     },
 })
 
-export const { api_categories, api_sorting, api_range, api_order } = apiRequestSlice.actions;
+export const { api_categories, api_sorting, api_range, api_order, api_pagination } = apiRequestSlice.actions;

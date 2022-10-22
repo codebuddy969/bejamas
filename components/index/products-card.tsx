@@ -1,5 +1,3 @@
-import {useReducer} from "react";
-
 import {useDispatch} from "react-redux";
 
 import Link from "next/link";

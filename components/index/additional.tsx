@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from '@/styles/components/additional.module.scss';
+import Link from "next/link";
+import Image from "next/image";
+import styles from "@/styles/components/additional.module.scss";
 
 const Additional = () => {
     return (
@@ -9,17 +9,32 @@ const Additional = () => {
             <div className={styles.products}>
                 <Link href="/product" passHref>
                     <a>
-                        <Image src='/product.png' alt='Logo of a bejamas company' layout='fill' objectFit='cover' />
+                        <Image
+                            src="/product.png"
+                            alt="Logo of a bejamas company"
+                            layout="fill"
+                            objectFit="cover"
+                        />
                     </a>
                 </Link>
                 <Link href="/product" passHref>
                     <a>
-                        <Image src='/product.png' alt='Logo of a bejamas company' layout='fill' objectFit='cover' />
+                        <Image
+                            src="/product.png"
+                            alt="Logo of a bejamas company"
+                            layout="fill"
+                            objectFit="cover"
+                        />
                     </a>
                 </Link>
                 <Link href="/product" passHref>
                     <a>
-                        <Image src='/product.png' alt='Logo of a bejamas company' layout='fill' objectFit='cover' />
+                        <Image
+                            src="/product.png"
+                            alt="Logo of a bejamas company"
+                            layout="fill"
+                            objectFit="cover"
+                        />
                     </a>
                 </Link>
             </div>
@@ -30,7 +45,7 @@ const Additional = () => {
                 <div>Size: 15 mb</div>
             </div>
         </div>
-    )
-}
-  
+    );
+};
+
 export default Additional;

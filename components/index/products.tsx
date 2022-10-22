@@ -14,25 +14,31 @@ import {RootState} from "@/utilities/redux/store";
 
 import {useGetFilteredProductsMutation} from "@/utilities/redux/services/api.service";
 
+export interface ICartParameterss {
+    data: {
+        data: any;
+    };
+}
+
 const Products = () => {
     const value = useContext(ServerDataContext) as iServerData;
 
-    const [products, SetProducts] = useState(value?.data?.products || []);
+    const [serverInfo, SetServerInfo] = useState(value?.data || []);
 
     const apiRequest = useSelector((state: RootState) => state.apiRequest);
 
     const [getFilteredProducts] = useGetFilteredProductsMutation();
 
     useEffect(() => {
-        getFilteredProducts({post: apiRequest}).then(({data: {data}}) => {
-            SetProducts(data.products);
+        getFilteredProducts({post: apiRequest}).then((response: any) => {
+            SetServerInfo(response.data.data);
         });
     }, [apiRequest]);
 
     return (
         <div className={styles.products}>
             <div className={styles.container}>
-                {products.map((product) => {
+                {serverInfo.products.map((product) => {
                     return (
                         <ProductsCard
                             key={product.id}
@@ -48,7 +54,7 @@ const Products = () => {
                     );
                 })}
             </div>
-            <Pagination />
+            <Pagination pages={serverInfo.pages} page={apiRequest.page} />
         </div>
     );
 };

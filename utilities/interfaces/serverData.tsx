@@ -21,6 +21,7 @@ export interface iServerData {
     data: {
         categories: iCategories[],
         products: iProduct[],
-        featured: iProduct
+        featured: iProduct,
+        pages: number
     },
 }
