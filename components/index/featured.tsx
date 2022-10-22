@@ -1,6 +1,10 @@
 import {useContext} from "react";
 
 import Image from "next/image";
+
+import {useDispatch} from "react-redux";
+import {add} from "@/utilities/redux/slices/addToCart.slice";
+
 import styles from "@/styles/components/featured.module.scss";
 
 import {iServerData} from "@/utilities/interfaces/serverData";
@@ -9,6 +13,8 @@ import {ServerDataContext} from "@/utilities/contexts/serverData";
 
 const Featured = () => {
     const value = useContext(ServerDataContext) as iServerData;
+
+    const dispatch = useDispatch();
 
     return (
         <div className={styles.featured}>
@@ -22,7 +28,21 @@ const Featured = () => {
                     loader={({src}) => `${src}`}
                 />
             </div>
-            <button className="btn-primary">Add to cart</button>
+            <button
+                className="btn-primary"
+                onClick={() =>
+                    dispatch(
+                        add({
+                            id: 1000,
+                            name: value.data.featured.name,
+                            price: value.data.featured.price,
+                            image: value.data.featured.image.src,
+                        })
+                    )
+                }
+            >
+                Add to cart
+            </button>
         </div>
     );
 };

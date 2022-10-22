@@ -19,4 +19,5 @@ export interface IApiRequestParams {
     range: String[];
     order: String;
     page: Number;
+    touched: Boolean;
 }

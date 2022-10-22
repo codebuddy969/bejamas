@@ -30,9 +30,11 @@ const Products = () => {
     const [getFilteredProducts] = useGetFilteredProductsMutation();
 
     useEffect(() => {
-        getFilteredProducts({post: apiRequest}).then((response: any) => {
-            SetServerInfo(response.data.data);
-        });
+        if (apiRequest.touched) {
+            getFilteredProducts({post: apiRequest}).then((response: any) => {
+                SetServerInfo(response.data.data);
+            });
+        }
     }, [apiRequest]);
 
     return (
